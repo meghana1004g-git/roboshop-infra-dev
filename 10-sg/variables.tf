@@ -11,7 +11,7 @@ variable "sg_names" {
   type = list 
   default = [
      # Databases
-     "mongodb", "redis", "mysql", "rabbitmq"
+     "mongodb", "redis", "mysql", "rabbitmq",
      # Backend
      "catalogue", "user", "cart", "shipping", "payment",
      # Backend_ALB
