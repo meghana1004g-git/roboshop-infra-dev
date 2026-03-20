@@ -12,9 +12,9 @@ resource "aws_instance" "mongodb" {
 
     )
 }
-resource "bootstrap" {
-    triggers_replace = [
-        aws_instance.mongodb.id
+resource "null_resource" "bootstrap" {
+    triggers = [
+            aws_instance.mongodb.id
     ]
     connection {
     type = "ssh"
