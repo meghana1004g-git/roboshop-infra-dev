@@ -12,7 +12,7 @@ resource "aws_instance" "mongodb" {
 
     )
 }
-resource "terraform-data" "bootstrap" {
+resource "bootstrap" {
     triggers_replace = [
         aws_instance.mongodb.id
     ]
