@@ -6,13 +6,13 @@ terraform {
     }
   }
 
-  
+
   backend "s3" {
-    bucket         = "remote-state-sbucket-dev" #replace with your bucket name
-    key            = "roboshop-dev-sg-rules"
-    region         = "us-east-1"
-    encrypt        = true
-    use_lockfile   = true
+    bucket       = "remote-state-sbucket-dev" #replace with your bucket name
+    key          = "roboshop-dev-sg-rules"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true
   }
 
 }
