@@ -36,3 +36,10 @@ resource "aws_iam_role_policy_attachment" "mysql" {
   role       = aws_iam_role.mysql.name
   policy_arn = aws_iam_policy.mysql.arn
 }
+
+
+# Create the Instance Profile 
+resource "aws_iam_instance_profile" "mysql" {
+  name = "${var.project}-${var.environment}-mysql"
+  role = aws_iam_role.mysql.name
+}
