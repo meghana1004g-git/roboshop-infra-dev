@@ -91,7 +91,7 @@ resource "aws_security_group_rule" "catalogue_bastion" {
   protocol  = "tcp"
   # where traffic is coming from
   source_security_group_id = local.bastion_sg_id
-  security_group_id        = local.catalogue_alb_sg_id
+  security_group_id        = local.catalogue_sg_id
 }
 
 resource "aws_security_group_rule" "catalogue_backend_alb" {
