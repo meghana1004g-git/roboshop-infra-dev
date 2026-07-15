@@ -9,7 +9,7 @@ variable "environment" {
 }
 
 variable "zone_id" {
-  default = "240933273585"
+  default = "Z03141781AJ3G4SGDUY0B"
 
 }
 
