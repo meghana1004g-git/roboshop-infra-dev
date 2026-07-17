@@ -122,33 +122,33 @@ tags = merge(
     )
 }
 
-# resource "aws_autoscaling_group" "catalogue" {
-#   name                      = "${var.project}-${var.environment}-catalogue"
-#   max_size                  = 10
-#   min_size                  = 1
-#   health_check_grace_period = 120
-#   health_check_type         = "ELB"
-#   desired_capacity          = 1
-#   force_delete              = false
-#   launch_template {
-#     id      = aws_launch_template.catalogue.id
-#     version = "$Latest"
-#   }
-#   vpc_zone_identifier  = [local.private_subnet_ids]
-#   target_group_arns    = [aws_alb_target_group.catalogue.arn]
+resource "aws_autoscaling_group" "catalogue" {
+  name                      = "${var.project}-${var.environment}-catalogue"
+  max_size                  = 10
+  min_size                  = 1
+  health_check_grace_period = 120
+  health_check_type         = "ELB"
+  desired_capacity          = 1
+  force_delete              = false
+  launch_template {
+    id      = aws_launch_template.catalogue.id
+    version = "$Latest"
+  }
+  vpc_zone_identifier  = [local.private_subnet_ids]
+  target_group_arns    = [aws_alb_target_group.catalogue.arn]
   
-#   tag {
-#     key                 = "Name"
-#     value               = "${var.project}-${var.environment}-catalogue"
-#     propagate_at_launch = true
-#   }
-#   timeouts {
-#     delete = "15m"
-#   }
+  tag {
+    key                 = "Name"
+    value               = "${var.project}-${var.environment}-catalogue"
+    propagate_at_launch = true
+  }
+  timeouts {
+    delete = "15m"
+  }
 
-#   tag {
-#     key                 = "lorem"
-#     value               = "ipsum"
-#     propagate_at_launch = false
-#   }
-# } 
+  tag {
+    key                 = "lorem"
+    value               = "ipsum"
+    propagate_at_launch = false
+  }
+} 
