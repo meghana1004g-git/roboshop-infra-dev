@@ -22,7 +22,7 @@ resource "aws_lb_listener" "http" {
   protocol          = "HTTP"
 
   default_action {
-    type  = "fixed response"
+    type  = "fixed-response"
 
     fixed_response {
       content_type = "text/html"
