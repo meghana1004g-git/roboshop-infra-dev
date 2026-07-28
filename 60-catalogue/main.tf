@@ -177,7 +177,7 @@ resource "aws_autoscaling_policy" "catalogue" {
   }
  
 }
-
+/* 
 resource "aws_lb_listener_rule" "catalogue" {
   listener_arn = local.backend_alb_listener_arn
   priority     = 10
@@ -206,3 +206,4 @@ resource "terraform_data" "catalogue_delete" {
     }
 
 }
+ */
