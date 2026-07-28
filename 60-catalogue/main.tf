@@ -98,7 +98,7 @@ resource "aws_launch_template" "catalogue" {
         local.common_tags
 
     )
-}
+  }
    # tags for volumes created by instances 
    tag_specifications {
     resource_type = "volume"
@@ -110,10 +110,10 @@ resource "aws_launch_template" "catalogue" {
         local.common_tags
 
     )
-}
+  }
 
-# tags for launch templates 
-tags = merge(
+  # tags for launch templates 
+  tags = merge(
   {
       Name = "${var.project}-${var.environment}-catalogue"
   },
@@ -121,7 +121,7 @@ tags = merge(
 
     )
 }
-/* 
+
 resource "aws_autoscaling_group" "catalogue" {
   name                      = "${var.project}-${var.environment}-catalogue"
   max_size                  = 10
@@ -178,6 +178,7 @@ resource "aws_autoscaling_policy" "catalogue" {
  
 }
 
+# this depends on target group
 resource "aws_lb_listener_rule" "catalogue" {
   listener_arn = local.backend_alb_listener_arn
   priority     = 10
@@ -204,6 +205,5 @@ resource "terraform_data" "catalogue_delete" {
     provisioner "local-exec" {
         command = "aws ec2 terminate-instances ${aws_instance.catalogue.id}"
     }
-
 }
-  */
+  
